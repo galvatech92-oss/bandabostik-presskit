@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Banda Bostik | Press Kit Oficial</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración Tailwind Personalizada -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#DC2626',
+                            gold: '#EAB308',
+                            black: '#050505',
+                            dark: '#0a0a0a'
+                        }
+                    },
+                    fontFamily: {
+                        rock: ['Anton', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Iconos & Fuentes -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FDB931 0%, #996515 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .member-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+        /* Efecto Hover solo en Desktop */
+        @media (min-width: 768px) {
+            .member-card:hover {
+                transform: translateY(-10px);
+                border-color: #EAB308;
+            }
+        }
+
+        .member-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.6) 50%, transparent 100%);
+        }
+
+        /* Línea de tiempo solo visible en móvil */
+        .timeline-line {
+            position: absolute;
+            left: 19px;
+            top: 10px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #DC2626, #EAB308, rgba(255,255,255,0.1));
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .timeline-line { display: none; } /* Ocultar línea en desktop para usar grid */
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .bg-noise {
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-noise"></div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 glass-nav py-3 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-5 flex justify-between items-center">
+            <a href="#" class="flex flex-col leading-none">
+                <span class="font-rock text-xl md:text-2xl uppercase italic tracking-widest text-white">
+                    Banda <span class="text-brand-red">Bostik</span>
+                </span>
+            </a>
+
+            <!-- Menú Desktop (Oculto en móvil) -->
+            <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <a href="#integrantes" class="hover:text-brand-gold transition-colors">Integrantes</a>
+                <a href="#historia" class="hover:text-brand-gold transition-colors">Historia</a>
+                <a href="#discografia" class="hover:text-brand-gold transition-colors">Discografía</a>
+            </div>
+            
+            <a href="#contacto" class="bg-brand-gold text-black font-bold uppercase text-[10px] md:text-xs tracking-widest px-4 py-2 rounded-sm hover:bg-white transition-colors shadow-[0_0_10px_rgba(234,179,8,0.4)]">
+                Contratar
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-brand-black px-4">
+        <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=1920')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black"></div>
+
+        <div class="relative z-10 text-center w-full max-w-4xl mx-auto mt-10">
+            <div class="reveal-up">
+                <div class="inline-flex items-center gap-2 border border-white/10 bg-black/60 backdrop-blur-md px-4 py-1.5 rounded-full mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse"></span>
+                    <span class="text-brand-gold text-[10px] font-bold uppercase tracking-[0.2em]">Press Kit Oficial</span>
+                </div>
+            </div>
+            
+            <div class="reveal-up" style="transition-delay: 200ms;">
+                <!-- ESPACIO PARA LOGO PNG (Reemplaza al texto) -->
+                <!-- Asegúrate de tener un archivo llamado 'logo.png' en la misma carpeta -->
+                <img src="logo.png" alt="Banda Bostik Logo" class="w-full max-w-[300px] md:max-w-[500px] mx-auto mb-8 drop-shadow-2xl hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <div class="reveal-up" style="transition-delay: 400ms;">
+                <p class="text-lg md:text-2xl text-white font-light tracking-[0.15em] uppercase mb-8">
+                    Embajadores del <br class="md:hidden"/><span class="text-brand-red font-bold text-xl md:text-3xl">Rock Urbano</span>
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-3 px-4">
+                     <a href="#integrantes" class="w-full md:w-auto md:px-10 bg-white text-black font-black uppercase tracking-widest py-4 text-xs hover:bg-brand-gold hover:text-black transition-colors">
+                        Ver Integrantes
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/50">
+            <i data-lucide="chevrons-down" class="w-6 h-6"></i>
+        </div>
+    </header>
+
+    <!-- 1. INTEGRANTES (GRID RESPONSIVO: 1 móvil, 2 tablet, 3 desktop) -->
+    <section id="integrantes" class="py-20 bg-brand-dark relative z-10 border-t border-white/5">
+        <div class="container mx-auto px-5 md:px-10">
+            <div class="text-center mb-12 reveal-up">
+                <h2 class="text-4xl md:text-6xl text-white uppercase font-rock mb-2">
+                    Alineación <span class="text-brand-red">Actual</span>
+                </h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Card 1 -->
+                <div class="reveal-up member-card h-[400px] md:h-[500px] bg-[#0f0f0f] border border-white/5 shadow-lg">
+                    <img src="MARSHALL.jpg" class="w-full h-full object-cover grayscale opacity-80" alt="Marshall">
+                    <div class="absolute inset-0 member-overlay"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6">
+                        <h3 class="text-4xl font-rock uppercase text-white leading-none mb-1">Marshall Biek</h3>
+                        <p class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase">Voz Principal</p>
+                        <div class="w-12 h-1 bg-brand-red mt-3"></div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="reveal-up member-card h-[400px] md:h-[500px] bg-[#0f0f0f] border border-white/5 shadow-lg">
+                    <img src="LALO.png" class="w-full h-full object-cover grayscale opacity-80" alt="Lalo">
+                    <div class="absolute inset-0 member-overlay"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6">
+                        <h3 class="text-4xl font-rock uppercase text-white leading-none mb-1">Eduardo Cruz</h3>
+                        <p class="text-gray-300 text-lg italic mb-1">“Lalo Blues”</p>
+                        <p class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase">Guitarra y Coros</p>
+                        <div class="w-12 h-1 bg-brand-red mt-3"></div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="reveal-up member-card h-[400px] md:h-[500px] bg-[#0f0f0f] border border-white/5 shadow-lg">
+                    <img src="FER.png" class="w-full h-full object-cover grayscale opacity-80" alt="Fer">
+                    <div class="absolute inset-0 member-overlay"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6">
+                        <h3 class="text-4xl font-rock uppercase text-white leading-none mb-1">Fernando Mendoza</h3>
+                        <p class="text-gray-300 text-lg italic mb-1">“El Fer”</p>
+                        <p class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase">Batería</p>
+                        <div class="w-12 h-1 bg-brand-red mt-3"></div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="reveal-up member-card h-[400px] md:h-[500px] bg-[#0f0f0f] border border-white/5 shadow-lg">
+                    <img src="Pitillo.png" class="w-full h-full object-cover grayscale opacity-80" alt="Pitillo">
+                    <div class="absolute inset-0 member-overlay"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6">
+                        <h3 class="text-4xl font-rock uppercase text-white leading-none mb-1">Ricardo Zepeda</h3>
+                        <p class="text-gray-300 text-lg italic mb-1">“Pitillo”</p>
+                        <p class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase">Saxofón y Flauta</p>
+                        <div class="w-12 h-1 bg-brand-red mt-3"></div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="reveal-up member-card h-[400px] md:h-[500px] bg-[#0f0f0f] border border-white/5 shadow-lg">
+                    <img src="PONCHITO.jpeg" class="w-full h-full object-cover grayscale opacity-80" alt="Ponchito">
+                    <div class="absolute inset-0 member-overlay"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6">
+                        <h3 class="text-4xl font-rock uppercase text-white leading-none mb-1">Enrique García</h3>
+                        <p class="text-gray-300 text-lg italic mb-1">“Ponchito”</p>
+                        <p class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase">Bajo y Coros</p>
+                        <div class="w-12 h-1 bg-brand-red mt-3"></div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="reveal-up member-card h-[400px] md:h-[500px] bg-[#0f0f0f] border border-white/5 shadow-lg">
+                    <img src="Manzarek.png" class="w-full h-full object-cover grayscale opacity-80" alt="Manzarek">
+                    <div class="absolute inset-0 member-overlay"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6">
+                        <h3 class="text-4xl font-rock uppercase text-white leading-none mb-1">David Manzarek</h3>
+                        <p class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase">Teclado y Coros</p>
+                        <div class="w-12 h-1 bg-brand-red mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. HISTORIA COMPLETA (RESPONSIVA: 2 Columnas en Desktop) -->
+    <section id="historia" class="py-20 bg-black relative">
+        <div class="container mx-auto px-5 md:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                
+                <!-- Columna Izquierda: Título y Foto Destacada (SIN STICKY) -->
+                <div class="space-y-8">
+                    <div class="reveal-up">
+                        <h2 class="text-4xl md:text-6xl font-rock uppercase text-white leading-none mb-6">
+                            El Legado <br/>
+                            <span class="text-gold-gradient">Interminable</span>
+                        </h2>
+                        <!-- Foto destacada -->
+                        <div class="w-full aspect-video bg-neutral-900 overflow-hidden mb-6 border border-white/10 rounded-sm shadow-2xl">
+                            <img src="GRUPO.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Banda Bostik Live">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Texto -->
+                <div class="space-y-8 text-base md:text-lg font-light text-gray-300 leading-relaxed text-justify">
+                    <!-- Párrafo 1 -->
+                    <p class="reveal-up">
+                        <strong class="text-white">BANDA BOSTIK</strong> es uno de los grupos más representativos del rock mexicano, fundado en 1983 en el Estado de México, con más de <span class="text-brand-gold font-bold">43 años de trayectoria ininterrumpida</span>, la agrupación ha construido un legado musical que trasciende generaciones y fronteras.
+                    </p>
+                    
+                    <!-- Párrafo 2 -->
+                    <p class="reveal-up">
+                        Conocidos como los <em class="text-white">“Embajadores del Rock Urbano”</em>, cuentan con más de 10 producciones discográficas oficiales y canciones icónicas que suman cientos de millones de streams y views en plataformas digitales y miles de versiones en vivo registradas en video, tales como: <span class="text-brand-red font-bold">“Tlatelolco”</span>, “Viajero”, “Déjala ser”, entre otros.
+                    </p>
+                    
+                    <!-- Párrafo 3 -->
+                    <p class="reveal-up">
+                        A lo largo de su carrera, Banda Bostik ha realizado más de <strong class="text-white">1,500 presentaciones en vivo</strong>, reuniendo públicos multitudinarios en ferias, festivales y recintos icónicos de México como el Autódromo Hermanos Rodríguez, el Foro Sol y el Festival Vive Latino, donde han convocado a más de <strong class="text-brand-gold">65,000 asistentes</strong> en una sola presentación.
+                    </p>
+
+                    <!-- Párrafo 4 -->
+                    <p class="reveal-up">
+                        El impacto de la banda no se limita a México: han realizado giras internacionales en más de 15 ciudades de Estados Unidos, incluyendo Los Ángeles, Chicago, Dallas y Houston, además de presentaciones en Europa dirigidas a la comunidad latina.
+                    </p>
+
+                    <!-- Párrafo 5 -->
+                    <div class="reveal-up bg-white/5 p-6 border-l-4 border-brand-red my-4">
+                        <p class="mb-0">
+                            En redes sociales, Banda Bostik mantiene una comunidad activa que supera los <strong class="text-white">400,000 seguidores oficiales</strong>, además de una base de fans histórica que rebasa el millón de personas en Latinoamérica y EE.UU.
+                        </p>
+                    </div>
+
+                    <!-- Párrafo 6 -->
+                    <p class="reveal-up">
+                        Hoy, con una carrera que abarca más de cuatro décadas, Banda Bostik sigue vigente, llevando su música a nuevas generaciones y defendiendo su lugar como un referente histórico, cultural e influyente del rock en español.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. DISCOGRAFÍA (Móvil: Lista / Desktop: Grilla 3 columnas) -->
+    <section id="discografia" class="py-20 bg-[#080808] relative">
+        <div class="container mx-auto px-5 md:px-10">
+            <div class="mb-12 reveal-up flex items-center gap-3 justify-center md:justify-start">
+                <i data-lucide="disc-3" class="w-8 h-8 text-brand-gold animate-spin-slow"></i>
+                <h2 class="text-4xl md:text-5xl text-white uppercase font-rock">
+                    Discografía
+                </h2>
+            </div>
+
+            <div class="relative pl-0">
+                <!-- Línea solo visible en móvil -->
+                <div class="timeline-line md:hidden"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-6">
+                    
+                    <!-- Items Discografía (Estilo Híbrido + Botón Spotify) -->
+                    <div class="reveal-up relative flex items-start gap-6 group md:block md:bg-[#111] md:p-6 md:border md:border-white/5 md:hover:border-green-600 md:transition-colors md:rounded">
+                        <!-- Punto móvil -->
+                        <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-black border-2 border-brand-red rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-[0_0_10px_rgba(220,38,38,0.5)] md:hidden">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                        </div>
+                        <div class="flex-grow pt-1 md:pt-0 text-left">
+                            <span class="text-3xl font-rock text-brand-red block mb-1 md:text-4xl md:mb-2">1987</span>
+                            <h3 class="text-xl md:text-2xl text-white font-bold uppercase leading-tight mb-4">Abran esa puerta</h3>
+                            
+                            <!-- Botón Spotify -->
+                            <a href="https://www.youtube.com/watch?v=cre748BV50Y" class="inline-flex items-center gap-2 text-green-500 hover:text-white transition-colors text-[10px] md:text-xs font-bold uppercase tracking-widest border border-green-500/30 px-3 py-2 rounded hover:bg-green-600 hover:border-transparent">
+                                <i data-lucide="music" class="w-3 h-3 md:w-4 md:h-4"></i> Escuchar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="reveal-up relative flex items-start gap-6 group md:block md:bg-[#111] md:p-6 md:border md:border-white/5 md:hover:border-green-600 md:transition-colors md:rounded">
+                        <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-black border-2 border-brand-red rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(220,38,38,0.5)] md:hidden">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                        </div>
+                        <div class="flex-grow pt-1 md:pt-0 text-left">
+                            <span class="text-3xl font-rock text-brand-red block mb-1 md:text-4xl md:mb-2">1988</span>
+                            <h3 class="text-xl md:text-2xl text-white font-bold uppercase leading-tight mb-4">Rock de la banda para la banda</h3>
+                            
+                            <!-- Botón Spotify -->
+                            <a href="https://open.spotify.com/intl-es/album/1BHcWHvVGRneGoe8QyUfuh?si=wirHDiTVQAuP3YPYL-UXGQ" class="inline-flex items-center gap-2 text-green-500 hover:text-white transition-colors text-[10px] md:text-xs font-bold uppercase tracking-widest border border-green-500/30 px-3 py-2 rounded hover:bg-green-600 hover:border-transparent">
+                                <i data-lucide="music" class="w-3 h-3 md:w-4 md:h-4"></i> Escuchar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="reveal-up relative flex items-start gap-6 group md:block md:bg-[#111] md:p-6 md:border md:border-white/5 md:hover:border-green-600 md:transition-colors md:rounded">
+                        <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-black border-2 border-brand-gold rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(234,179,8,0.5)] md:hidden">
+                            <div class="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                        <div class="flex-grow pt-1 md:pt-0 text-left">
+                            <span class="text-3xl font-rock text-brand-gold block mb-1 md:text-4xl md:mb-2">1989</span>
+                            <h3 class="text-xl md:text-2xl text-white font-bold uppercase leading-tight">Capturados</h3>
+                            <p class="text-sm text-gray-400 italic mt-1 mb-4">En vivo desde Reclusorio Barrientos</p>
+                            
+                            <!-- Botón Spotify -->
+                            <a href="https://open.spotify.com/album/3yAAIY2FjKw8IkOVTEguWu?si=EtIDl_2KTbuxXO2TUOZi5Q" class="inline-flex items-center gap-2 text-green-500 hover:text-white transition-colors text-[10px] md:text-xs font-bold uppercase tracking-widest border border-green-500/30 px-3 py-2 rounded hover:bg-green-600 hover:border-transparent">
+                                <i data-lucide="music" class="w-3 h-3 md:w-4 md:h-4"></i> Escuchar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="reveal-up relative flex items-start gap-6 group md:block md:bg-[#111] md:p-6 md:border md:border-white/5 md:hover:border-green-600 md:transition-colors md:rounded">
+                        <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-black border-2 border-brand-red rounded-full flex items-center justify-center md:hidden">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                        </div>
+                        <div class="flex-grow pt-1 md:pt-0 text-left">
+                            <span class="text-3xl font-rock text-brand-red block mb-1 md:text-4xl md:mb-2">1992</span>
+                            <h3 class="text-xl md:text-2xl text-white font-bold uppercase leading-tight mb-4">Del barrio</h3>
+                            
+                            <!-- Botón Spotify -->
+                            <a href="https://open.spotify.com/album/21867014aseBS6APsqGgcN?si=phYK3YdsTh-8VzBORiPgFQ" class="inline-flex items-center gap-2 text-green-500 hover:text-white transition-colors text-[10px] md:text-xs font-bold uppercase tracking-widest border border-green-500/30 px-3 py-2 rounded hover:bg-green-600 hover:border-transparent">
+                                <i data-lucide="music" class="w-3 h-3 md:w-4 md:h-4"></i> Escuchar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="reveal-up relative flex items-start gap-6 group md:block md:bg-[#111] md:p-6 md:border md:border-white/5 md:hover:border-green-600 md:transition-colors md:rounded">
+                        <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-black border-2 border-brand-red rounded-full flex items-center justify-center md:hidden">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                        </div>
+                        <div class="flex-grow pt-1 md:pt-0 text-left">
+                            <span class="text-3xl font-rock text-brand-red block mb-1 md:text-4xl md:mb-2">1995</span>
+                            <h3 class="text-xl md:text-2xl text-white font-bold uppercase leading-tight">Viva México Cabrones</h3>
+                            <p class="text-sm text-brand-gold italic mt-1 mb-4">Vol. 1 & 2</p>
+                            
+                            <!-- Botón Spotify -->
+                            <a href="https://open.spotify.com/album/1v4EHHcvOU73UE4zUKX3zh?si=5H6_bAlETCe8oZSyemcNUA" class="inline-flex items-center gap-2 text-green-500 hover:text-white transition-colors text-[10px] md:text-xs font-bold uppercase tracking-widest border border-green-500/30 px-3 py-2 rounded hover:bg-green-600 hover:border-transparent">
+                                <i data-lucide="music" class="w-3 h-3 md:w-4 md:h-4"></i> Escuchar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="reveal-up relative flex items-start gap-6 group md:block md:bg-[#111] md:p-6 md:border md:border-white/5 md:hover:border-green-600 md:transition-colors md:rounded">
+                         <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-black border-2 border-brand-red rounded-full flex items-center justify-center md:hidden">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                        </div>
+                        <div class="flex-grow pt-1 md:pt-0 text-left">
+                            <span class="text-3xl font-rock text-brand-red block mb-1 md:text-4xl md:mb-2">2000</span>
+                            <h3 class="text-xl md:text-2xl text-white font-bold uppercase leading-tight mb-4">Hipotecados</h3>
+                            
+                            <!-- Botón Spotify -->
+                            <a href="https://open.spotify.com/album/7gVOPdYbUUcCEp7YzorFFs?si=tW6AIwhLRSmQof2CeoPfTA" class="inline-flex items-center gap-2 text-green-500 hover:text-white transition-colors text-[10px] md:text-xs font-bold uppercase tracking-widest border border-green-500/30 px-3 py-2 rounded hover:bg-green-600 hover:border-transparent">
+                                <i data-lucide="music" class="w-3 h-3 md:w-4 md:h-4"></i> Escuchar
+                            </a>
+                        </div>
+                    </div>
+
+                     <div class="reveal-up relative flex items-start gap-6 group md:block md:bg-[#111] md:p-6 md:border md:border-white/5 md:hover:border-green-600 md:transition-colors md:rounded">
+                         <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-black border-2 border-brand-red rounded-full flex items-center justify-center md:hidden">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                        </div>
+                        <div class="flex-grow pt-1 md:pt-0 text-left">
+                            <span class="text-3xl font-rock text-brand-red block mb-1 md:text-4xl md:mb-2">2004</span>
+                            <h3 class="text-xl md:text-2xl text-white font-bold uppercase leading-tight mb-4">Genoma humano</h3>
+                            
+                            <!-- Botón Spotify -->
+                            <a href="https://open.spotify.com/album/7vN4m21unn7Fy7splGXC62?si=Mg8Z4X8cSteL3Oor9D7iVA" class="inline-flex items-center gap-2 text-green-500 hover:text-white transition-colors text-[10px] md:text-xs font-bold uppercase tracking-widest border border-green-500/30 px-3 py-2 rounded hover:bg-green-600 hover:border-transparent">
+                                <i data-lucide="music" class="w-3 h-3 md:w-4 md:h-4"></i> Escuchar
+                            </a>
+                        </div>
+                    </div>
+
+                     <div class="reveal-up relative flex items-start gap-6 group md:block md:bg-[#111] md:p-6 md:border md:border-white/5 md:hover:border-green-600 md:transition-colors md:rounded">
+                         <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-black border-2 border-brand-red rounded-full flex items-center justify-center md:hidden">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                        </div>
+                        <div class="flex-grow pt-1 md:pt-0 text-left">
+                            <span class="text-3xl font-rock text-brand-red block mb-1 md:text-4xl md:mb-2">2016</span>
+                            <h3 class="text-xl md:text-2xl text-white font-bold uppercase leading-tight">20 Aniversario</h3>
+                            <p class="text-sm text-brand-gold italic mt-1 mb-4">Vol. 1 & 2</p>
+                            
+                            <!-- Botón Spotify -->
+                            <a href="https://open.spotify.com/album/6jMTR49Z5XHpUlkvEEaIhC?si=rdGpSbJlRs2xdusCwPoNEg" class="inline-flex items-center gap-2 text-green-500 hover:text-white transition-colors text-[10px] md:text-xs font-bold uppercase tracking-widest border border-green-500/30 px-3 py-2 rounded hover:bg-green-600 hover:border-transparent">
+                                <i data-lucide="music" class="w-3 h-3 md:w-4 md:h-4"></i> Escuchar
+                            </a>
+                        </div>
+                    </div>
+
+                     <div class="reveal-up relative flex items-start gap-6 group md:block md:bg-[#111] md:p-6 md:border md:border-white/5 md:hover:border-green-600 md:transition-colors md:rounded">
+                         <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-black border-2 border-brand-red rounded-full flex items-center justify-center md:hidden">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                        </div>
+                        <div class="flex-grow pt-1 md:pt-0 text-left">
+                            <span class="text-3xl font-rock text-brand-red block mb-1 md:text-4xl md:mb-2">2019</span>
+                            <h3 class="text-xl md:text-2xl text-white font-bold uppercase leading-tight mb-4">Trascendencia</h3>
+                            
+                            <!-- Botón Spotify -->
+                            <a href="https://open.spotify.com/album/6wI9HpmGoMc2abajO10K1k?si=z8nORIcZSYqwPaMgBVlY2Q" class="inline-flex items-center gap-2 text-green-500 hover:text-white transition-colors text-[10px] md:text-xs font-bold uppercase tracking-widest border border-green-500/30 px-3 py-2 rounded hover:bg-green-600 hover:border-transparent">
+                                <i data-lucide="music" class="w-3 h-3 md:w-4 md:h-4"></i> Escuchar
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CONTACTO -->
+    <section id="contacto" class="py-20 bg-brand-red relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-90"></div>
+        <div class="container mx-auto px-5 md:px-10 relative z-10">
+            <h2 class="text-5xl font-rock uppercase text-white mb-8 text-center">
+                Contacto
+            </h2>
+            <div class="bg-black/50 border border-white/10 p-6 backdrop-blur-md rounded-lg mb-8 reveal-up max-w-2xl mx-auto">
+                <p class="text-xs text-gray-400 uppercase tracking-widest mb-2 text-center">Manager General</p>
+                <h3 class="text-3xl font-rock text-white mb-8 text-center">Fernando Mendoza</h3>
+                
+                <div class="flex justify-center mb-6">
+                    <a href="https://wa.me/525518173908?text=Me%20interesa%20la%20contrataci%C3%B3n%20de%20la%20banda%20bostik" target="_blank" class="flex items-center justify-center gap-3 w-full max-w-sm bg-green-600 hover:bg-green-500 text-white font-bold uppercase tracking-widest py-4 rounded shadow-lg active:scale-95 transition-transform">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        WhatsApp
+                    </a>
+                </div>
+
+                <div class="text-center mt-6 space-y-1">
+                    <p class="text-gray-400 text-sm font-mono">55-18-17-39-08</p>
+                    <p class="text-gray-400 text-sm font-mono select-all">bandabostikoficial@outlook.com</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal-up max-w-3xl mx-auto">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/bandabostikoficial" class="bg-blue-900/40 border border-white/10 p-4 text-center rounded active:bg-blue-900/60 transition-colors hover:bg-blue-900/60 group">
+                    <i data-lucide="facebook" class="text-white group-hover:text-blue-400 transition-colors w-6 h-6 mx-auto mb-2"></i>
+                    <span class="block text-xs font-bold uppercase">Facebook</span>
+                </a>
+                
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/bandabostikoficial/" class="bg-pink-900/40 border border-white/10 p-4 text-center rounded active:bg-pink-900/60 transition-colors hover:bg-pink-900/60 group">
+                    <i data-lucide="instagram" class="text-white group-hover:text-pink-400 transition-colors w-6 h-6 mx-auto mb-2"></i>
+                    <span class="block text-xs font-bold uppercase">Instagram</span>
+                </a>
+                
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/channel/UCf9NzF-WJfJyxaNZnpXlw-w" class="bg-red-900/40 border border-white/10 p-4 text-center rounded active:bg-red-900/60 transition-colors hover:bg-red-900/60 group">
+                    <i data-lucide="youtube" class="text-white group-hover:text-red-500 transition-colors w-6 h-6 mx-auto mb-2"></i>
+                    <span class="block text-xs font-bold uppercase">YouTube</span>
+                </a>
+
+                <!-- Spotify -->
+                <a href="https://open.spotify.com/intl-es/artist/1vWDEM03uVWmO7jSuBd2nO?si=yDIhg122QIOLSfRnMcKAgg" class="bg-green-900/40 border border-white/10 p-4 text-center rounded active:bg-green-900/60 transition-colors hover:bg-green-900/60 group">
+                    <i data-lucide="music" class="text-white group-hover:text-green-500 transition-colors w-6 h-6 mx-auto mb-2"></i>
+                    <span class="block text-xs font-bold uppercase">Spotify</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. IN MEMORIAM -->
+    <footer class="bg-brand-black pt-20 pb-12 border-t border-white/10">
+        <div class="px-5 text-center">
+            <div class="reveal-up">
+                <div class="relative w-40 h-40 mx-auto mb-8">
+                    <div class="absolute inset-0 rounded-full bg-brand-red opacity-30 animate-pulse-slow blur-xl"></div>
+                    <div class="relative w-full h-full rounded-full border-2 border-white/20 p-1 bg-black overflow-hidden z-10">
+                        <img src="guadana.jpg" class="w-full h-full object-cover grayscale rounded-full" alt="Guadaña">
+                    </div>
+                     <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-black border border-white/20 px-3 py-1 rounded-full z-20 shadow-lg">
+                        <i data-lucide="ribbon" class="w-4 h-4 text-brand-gold"></i>
+                     </div>
+                </div>
+                <div class="space-y-3">
+                    <span class="text-brand-gold text-[10px] font-bold uppercase tracking-[0.3em]">In Memoriam • 2025</span>
+                    <h3 class="text-4xl font-rock text-white uppercase leading-none">
+                        David Lerma G. <br/>
+                        <span class="text-brand-red">“El Guadaña”</span>
+                    </h3>
+                    <p class="text-sm text-gray-400 font-light italic">Voz histórica de la banda (60 años)</p>
+                    <div class="mt-6 inline-block border-t border-b border-white/10 py-2 px-8">
+                         <span class="text-white text-[10px] uppercase tracking-widest font-bold">Descansa en Paz</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 text-[10px] text-gray-600 uppercase tracking-widest font-bold">
+                &copy; <script>document.write(new Date().getFullYear())</script> Banda Bostik. Press Kit.
+            </div>
+        </div>
+    </footer>
+
+    <!-- LÓGICA -->
+    <script>
+        lucide.createIcons();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
